@@ -1,23 +1,32 @@
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
+then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Exports
 export EDITOR=vim
 
-# Useful aliases
-alias py3="python3"
-alias ww="cd ~/workspace"
-alias git-alias="git config --get-regexp alias"
-alias vi=nvim
-alias vim=nvim
+# Alias
 alias c="clear"
 alias ..="cd .."
-alias ll="ls --color=auto -al"
-alias la="ls --color=auto -a"
-alias grep="grep --color=auto"
+alias vi="nvim"
+alias vim="nvim"
+alias ls='ls --color=auto'
+alias ll='ls -l'
+alias lla='ls -la'
+alias la='ls -a'
+alias grep='grep --color=auto'
+alias tma="tmux attach -t "
+alias ww="cd ~/workspace"
+alias py="python3"
+alias py2="python2"
+alias git-alias="git config --get-regexp alias"
 
-# [username dir] (git) $
-PS1='[\u \W] ($(git branch 2>/dev/null | grep '"'"'*'"'"' | colrm 1 2)) \$ '
+PS1='[\[\e[96;1m\]\u \[\e[91m\]\W\[\e[0m\]] λ> '
 
-# Source extra-bash
-# extra-bash is used to store machine specific bash configs that don't need
-# to be version controlled
-if [[ -f "./.extra-bash" ]]; then
-    source "./.extra-bash"
+# Run the extra script if one is there
+if [ -f ~/.extrarc ]; then
+  . ~/.extrarc
 fi
