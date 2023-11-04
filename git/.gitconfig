@@ -1,9 +1,9 @@
 [core]
-	editor = vi
+  editor = vi
 [alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
 [color]
-    ui = auto
+  ui = auto
